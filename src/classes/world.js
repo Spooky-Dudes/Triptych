@@ -38,15 +38,21 @@ class World {
 
         if(i % width == 0) {
           // A new horizontal row needs to be created.
-          currentrow = [];
           if(i !== 0) {
             this.layout.push(currentrow);
           }
+          currentrow = [];
         }
 
         if(r == 255 && g == 255 && b == 255) {
           // grass
           currentrow.push(0);
+        } else {
+          x = i % width;
+          y = Math.floor(i / width);
+          console.log("Map Error: Tile number " + i + " (co-ordinates: " x + ", " + y + ") cannot be recognized. Color values: " + r + " ;" + g + " ; " + b " ; " + a)
+          alert("Whoops! Something went terribly wrong.");
+          return
         }
 
       }
