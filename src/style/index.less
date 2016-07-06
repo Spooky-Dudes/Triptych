@@ -1,0 +1,57 @@
+.game-container {
+	width: 500px;
+	height: 500px;
+	background: black;
+
+	position: absolute;
+	top: 50px;
+	left:50%;
+	transform:translateX(-50%);
+}
+
+.log-container {
+  width: 500px;
+  height: 250px;
+  background-color: black;
+
+  position: absolute;
+  top: 600px;
+  left:50%;
+  transform:translateX(-50%);
+
+  p {
+    color: white;
+  }
+}
+
+.row {
+	width: 100%;
+	height: 33.3333%;
+
+	background:white;
+	font-size: 0;
+}
+
+.tile {
+	overflow:hidden;
+	display: inline-block;
+	width: 33.3%;
+	height: 100%;
+	background:black;
+	margin: 0;
+	padding: 0;
+
+
+}
+
+.tile[data-tile="player"] {
+	background: #46E3CA;
+}
+
+.tile[data-tile="grass"] {
+	background: green;
+}
+
+.tile[data-tile="water"] {
+	background: blue;
+}

@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <script src="main.js" charset="utf-8"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    <div class="game-container">
+        <div class="row">
+            <div class="nw tile"></div>
+            <div class="n tile"></div>
+            <div class="ne tile"></div>
+        </div>
+        <div class="row">
+            <div class="w tile"></div>
+            <div data-tile="player" class="c tile"></div>
+            <div class="e tile"></div>
+        </div>
+        <div class="row">
+            <div class="sw tile"></div>
+            <div class="s tile"></div>
+            <div class="se tile"></div>
+        </div>
+    </div>
+
+    <div class="log-container">
+        <p>
+            line
+        </p>
+    </div>
+    <script src="main.js" charset="utf-8"></script>
+</body>
 </html>
