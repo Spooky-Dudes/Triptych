@@ -15,8 +15,9 @@ class World {
 
   loadMap(cb) {
     const base_image = new Image();
-    base_image.src = '../assets/map.png';
+    base_image.src = '/assets/map.png';
 
+    const world = this;
     base_image.onload = function() {
       const canvas = document.createElement('canvas'),
         context = canvas.getContext('2d');
@@ -28,7 +29,7 @@ class World {
 
       context.drawImage(base_image, 0, 0, width, height);
 
-      const colordata = context.getImageData(0, 0, width, height);
+      const colordata = context.getImageData(0, 0, width, height).data;
 
       let currentrow = [];
       for (let i = 0; i < (colordata.length / 4); i++) {
@@ -40,18 +41,18 @@ class World {
         if(i % width == 0) {
           // A new horizontal row needs to be created.
           if(i !== 0) {
-            this.map.push(currentrow);
+            world.map.push(currentrow);
           }
           currentrow = [];
         }
 
-        if(r == 255 && g == 255 && b == 255) {
+        if(r == 0 && g == 0 && b == 0) {
           // grass
           currentrow.push(0);
         } else {
           const x = i % width;
           const y = Math.floor(i / width);
-          console.log(`Map Error: Tile number ${i} (co-ordinates: ${x}, ${y}") cannot be recognized. Color values: ${r}; ${g}; ${b}; ${a}`);
+          console.log(`Map Error: Tile number ${i} (co-ordinates: ${x}, ${y}) cannot be recognized. Color values: ${r}; ${g}; ${b}; ${a}`);
           alert('Whoops! Something went terribly wrong.');
           return;
         }
