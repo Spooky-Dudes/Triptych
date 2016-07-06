@@ -1,1 +1,2 @@
-document.body.innerHTML = 'LEL';
+import './style/index.less';
+import './game.js';
