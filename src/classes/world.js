@@ -1,8 +1,6 @@
 class World {
   constructor() {
-    this.layout = [
-      []
-    ];
+    this.layout = [];
     this.entities = {};
   }
 
@@ -31,12 +29,26 @@ class World {
 
       var colordata = context.getImageData(0, 0, width, height);
 
-      for (var i = 0; i < colordata.length; i = i + 4) {
-        r = colordata[i];
-        g = colordata[i + 1];
-        b = colordata[i + 2];
+      var currentrow = [];
+      for (var i = 0; i < (colordata.length / 4); i++) {
+        var r = colordata[(i * 4)];
+        var g = colordata[(i * 4) + 1];
+        var b = colordata[(i * 4) + 2];
+        var a = colordata[(i * 4) + 3];
 
-        // do something
+        if(i % width == 0) {
+          // A new horizontal row needs to be created.
+          currentrow = [];
+          if(i !== 0) {
+            this.layout.push(currentrow);
+          }
+        }
+
+        if(r == 255 && g == 255 && b == 255) {
+          // grass
+          currentrow.push(0);
+        }
+
       }
     }
   }
