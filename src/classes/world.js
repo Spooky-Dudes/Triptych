@@ -1,3 +1,5 @@
+import tiles from '../constants/tiles.js';
+
 class World {
   constructor() {
     this.map = [];
@@ -88,6 +90,12 @@ class World {
     }
 
     return tiles;
+  }
+
+  canMove(x,y) {
+    const tile = this.getTile(x,y);
+
+    return (tiles[Math.floor(tile)].tile.passable);
   }
 }
 

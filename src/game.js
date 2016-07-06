@@ -28,7 +28,7 @@ world.loadMap(() => requestAnimationFrame(gameLoop));
 
 function gameLoop() {
   if(move !== '') {
-    player.move(move);
+    player.move(move, world);
     move = '';
   }
   renderer.renderWorld(world.getDrawableTiles(player.x-1,player.y-1));

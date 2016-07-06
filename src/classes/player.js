@@ -9,19 +9,19 @@ class Player {
     this.y = y;
   }
 
-  move(d) {
+  move(d, world) {
     switch (d) {
     case 's':
-      this.moveS();
+      this.moveS(world);
       break;
     case 'n':
-      this.moveN();
+      this.moveN(world);
       break;
     case 'e':
-      this.moveE();
+      this.moveE(world);
       break;
     case 'w':
-      this.moveW();
+      this.moveW(world);
       break;
     default:
 
@@ -29,21 +29,30 @@ class Player {
 
   }
 
-  moveN() {
-    this.y -= 1;
+  moveN(world) {
+    if(world.canMove(this.x, this.y-1)) {
+      this.y -= 1;
+    }
   }
 
-  moveS() {
-    this.y += 1;
+  moveS(world) {
+    if(world.canMove(this.x, this.y+1)) {
+      this.y += 1;
+    }
   }
 
-  moveW() {
-    this.x -= 1;
+  moveW(world) {
+    if(world.canMove(this.x-1, this.y)) {
+      this.x -= 1;
+    }
   }
 
-  moveE() {
-    this.x += 1;
+  moveE(world) {
+    if(world.canMove(this.x+1, this.y)) {
+      this.x += 1;
+    }
   }
+
 }
 
 export default Player;
