@@ -17,7 +17,7 @@ class Renderer {
 
   renderWorld(t) {
     for (let i = 0; i < t.length; i++) {
-      if(t[i] === 0 && i !== 4) {
+      if(Math.floor(t[i]) === 0 && i !== 4) {
         this.DOM_el[i].setAttribute('data-tile', 'grass');
       } else if(i === 4) {
         this.DOM_el[i].setAttribute('data-tile', 'player');

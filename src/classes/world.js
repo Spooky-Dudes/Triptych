@@ -47,7 +47,11 @@ class World {
 
         if(r == 0 && g == 0 && b == 0) {
           // grass
-          currentrow.push(0);
+
+          const NewValue = (((a) * (0.99)) / (255));
+          currentrow.push(0 + NewValue);
+        } else if (r === 0 && g === 0 && b === 255) {
+          currentrow.push(1);
         } else {
           const x = i % width;
           const y = Math.floor(i / width);
