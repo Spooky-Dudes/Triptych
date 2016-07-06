@@ -4,7 +4,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
   context: path.join(__dirname, 'src'),
   entry:  {
-    bootstrap: './main.js'
+    main: './main.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),
