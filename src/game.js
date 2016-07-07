@@ -4,7 +4,7 @@ import Player from './classes/player.js';
 
 const world = new World();
 const renderer = new Renderer();
-const player = new Player(1,1);
+const player = new Player(2,2);
 
 let move = '';
 

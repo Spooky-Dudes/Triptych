@@ -18,8 +18,7 @@ class World {
     const base_image = new Image();
     base_image.src = '/assets/map.png';
 
-    const world = this;
-    base_image.onload = function() {
+    base_image.onload = () => {
       const canvas = document.createElement('canvas'),
         context = canvas.getContext('2d');
 
@@ -42,7 +41,7 @@ class World {
         if(i % width == 0) {
           // A new horizontal row needs to be created.
           if(i !== 0) {
-            world.map.push(currentrow);
+            this.map.push(currentrow);
           }
           currentrow = [];
         }
@@ -62,7 +61,17 @@ class World {
           return;
         }
 
+      }
 
+      // surround map with water
+      const filler = new Array(this.map[0].length).join('1').split('');
+
+      this.map.unshift(filler);
+      this.map.push(filler);
+
+      for (let i = 0; i < this.map.length; i++) {
+        this.map[i].unshift(1);
+        this.map[i].push(1);
       }
 
       cb();
